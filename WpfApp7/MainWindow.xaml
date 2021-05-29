@@ -1,0 +1,66 @@
+﻿<Window x:Class="WpfApp7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp7"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- типа логотип компании -->
+        <Image 
+            Source="C:\Users\User\Desktop\Img\bus.jpeg" 
+            Grid.RowSpan="2"/>
+
+        <StackPanel 
+        Orientation="Vertical"
+        Grid.RowSpan="3"
+        VerticalAlignment="Bottom">
+            <Button 
+            x:Name="ExitButton"
+            Content="Выход" 
+            Click="ExitButton_Click"
+            Height="50"/>
+        </StackPanel>
+
+        <WrapPanel
+        Orientation="Horizontal"
+        Grid.Column="1"
+        MinHeight="50">
+            <!-- минимальную высоту я тут поставил, чтобы верхнюю строку сетки было видно. В реальном приложении она не нужна -->
+        </WrapPanel>
+
+        <DataGrid
+    Grid.Column="1"
+    CanUserAddRows="False"
+    AutoGenerateColumns="False"
+    ItemsSource="{Binding BusList}" Margin="0,50,0.286,0.429" Grid.RowSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+            Header="Автобус"
+            Binding="{Binding Buss}"/>
+                <DataGridTextColumn
+            Header="Номер"
+            Binding="{Binding Number}"/>
+                <DataGridTextColumn
+            Header="Плата за проезд"
+            Binding="{Binding Fare}"/>
+                <DataGridTextColumn
+            Header="Дата отправления"
+            Binding="{Binding Departure}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+
+
+</Window>
