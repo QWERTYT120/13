@@ -110,4 +110,4 @@
 </Window>
 
  
- ![](./lab1.png)
+ ![](C:\Users\User\Desktop\Img\lab1.png)
